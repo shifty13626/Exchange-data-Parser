@@ -1,0 +1,1113 @@
+{
+	"info": {
+		"_postman_id": "aa2ed69a-6fa6-4f14-8b0f-35842c0523da",
+		"name": "echange-data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "steam",
+			"item": [
+				{
+					"name": "getStorePageGame",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://store.steampowered.com/api/appdetails/?appids=730",
+							"protocol": "http",
+							"host": [
+								"store",
+								"steampowered",
+								"com"
+							],
+							"path": [
+								"api",
+								"appdetails",
+								""
+							],
+							"query": [
+								{
+									"key": "appids",
+									"value": "730"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAppidGames",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.steampowered.com/ISteamApps/GetAppList/v2/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"steampowered",
+								"com"
+							],
+							"path": [
+								"ISteamApps",
+								"GetAppList",
+								"v2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCurrentPlayerForAGame",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1091500",
+							"protocol": "https",
+							"host": [
+								"api",
+								"steampowered",
+								"com"
+							],
+							"path": [
+								"ISteamUserStats",
+								"GetNumberOfCurrentPlayers",
+								"v1",
+								""
+							],
+							"query": [
+								{
+									"key": "appid",
+									"value": "1091500"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "giantBomb",
+			"item": [
+				{
+					"name": "getListGames",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.giantbomb.com/api/games/?api_key=9b7b5970d0875633d85981b13888495419481ab8&format=json&page=100",
+							"protocol": "https",
+							"host": [
+								"www",
+								"giantbomb",
+								"com"
+							],
+							"path": [
+								"api",
+								"games",
+								""
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "9b7b5970d0875633d85981b13888495419481ab8"
+								},
+								{
+									"key": "format",
+									"value": "json"
+								},
+								{
+									"key": "field_list",
+									"value": "name",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getListGamesAddedDesc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.giantbomb.com/api/games/?api_key=9b7b5970d0875633d85981b13888495419481ab8&format=json&field_list=name,date_added&sort=date_added:desc&page=100",
+							"protocol": "https",
+							"host": [
+								"www",
+								"giantbomb",
+								"com"
+							],
+							"path": [
+								"api",
+								"games",
+								""
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "9b7b5970d0875633d85981b13888495419481ab8"
+								},
+								{
+									"key": "format",
+									"value": "json"
+								},
+								{
+									"key": "field_list",
+									"value": "name,date_added"
+								},
+								{
+									"key": "sort",
+									"value": "date_added:desc"
+								},
+								{
+									"key": "page",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getListGamesFields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.giantbomb.com/api/games/?api_key=9b7b5970d0875633d85981b13888495419481ab8&format=json&field_list=name,date_added,date_last_updated,aliases,original_game_rating&sort=date_added:desc&page=100",
+							"protocol": "https",
+							"host": [
+								"www",
+								"giantbomb",
+								"com"
+							],
+							"path": [
+								"api",
+								"games",
+								""
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "9b7b5970d0875633d85981b13888495419481ab8"
+								},
+								{
+									"key": "format",
+									"value": "json"
+								},
+								{
+									"key": "field_list",
+									"value": "name,date_added,date_last_updated,aliases,original_game_rating"
+								},
+								{
+									"key": "sort",
+									"value": "date_added:desc"
+								},
+								{
+									"key": "page",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "igdb",
+			"item": [
+				{
+					"name": "getToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://id.twitch.tv/oauth2/token?client_id=yelxclbcis2hmgdqo5owa5h9flk5bj&client_secret=8rljxhfjuoae8pxf5qfvvj4zo0ghx1&grant_type=client_credentials",
+							"protocol": "https",
+							"host": [
+								"id",
+								"twitch",
+								"tv"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj"
+								},
+								{
+									"key": "client_secret",
+									"value": "8rljxhfjuoae8pxf5qfvvj4zo0ghx1"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;\r\nwhere id = 31254;\r\nlimit 100;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/age_ratings",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"age_ratings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchGame",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;\r\nlimit 100;\r\nwhere name = \"Cyberpunk 2077\";"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/games",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"games"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchAllGames",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;\r\nlimit 100;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/games",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"games"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "plateforms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"type": "text",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;\r\nexclude alternative_name;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/platforms/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"platforms",
+								""
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "player_perspectives",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"type": "text",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/player_perspectives",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"player_perspectives"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "theme",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"type": "text",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/themes",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"themes"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "game engine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"type": "text",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/game_engines",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"game_engines"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "involved company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"type": "text",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/involved_companies",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"involved_companies"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"type": "text",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/companies",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"companies"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "game mode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"type": "text",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/game_modes",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"game_modes"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "webSite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"type": "text",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/game_modes",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"game_modes"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "keywords",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"type": "text",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/keywords",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"keywords"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Release_data",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"type": "text",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *; \r\nwhere game.platforms = 48 & date > 1538129354;\r\nsort date asc;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/release_dates/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"release_dates",
+								""
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getGenre",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;\r\nlimit 100;\r\nwhere id = 12;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/genres",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFranchise",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;\r\nlimit 100;\r\nwhere id = 451;"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/franchises",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"franchises"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTheme",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ei1fch9rx9z6ezfjo0yizzhczpkgmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Client-ID",
+								"value": "yelxclbcis2hmgdqo5owa5h9flk5bj",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "fields *;\r\nlimit 100;\r\nwhere id = 33;         \r\n      \r\n"
+						},
+						"url": {
+							"raw": "https://api.igdb.com/v4/themes",
+							"protocol": "https",
+							"host": [
+								"api",
+								"igdb",
+								"com"
+							],
+							"path": [
+								"v4",
+								"themes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DEMO",
+			"item": [
+				{
+					"name": "GetMedia1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:55936/Media",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55936",
+							"path": [
+								"Media"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMedia2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:55936/Media2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55936",
+							"path": [
+								"Media2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
