@@ -1,4 +1,5 @@
 using CsvHelper.Configuration;
+using DataParser.Entities;
 
 namespace DataParser.Sales {
     public class GameSalesMap : ClassMap<GameSales>
