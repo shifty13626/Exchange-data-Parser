@@ -1,0 +1,15 @@
+[
+  {
+    "id": 451,
+    "created_at": 1407715200,
+    "games": [
+      1877,
+      120199
+    ],
+    "name": "Cyberpunk",
+    "slug": "cyberpunk",
+    "updated_at": 1407715200,
+    "url": "https://www.igdb.com/franchises/cyberpunk",
+    "checksum": "74e5ed3e-9169-6b61-a7cc-b459851acd98"
+  }
+]
