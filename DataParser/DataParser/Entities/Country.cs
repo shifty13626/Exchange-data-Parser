@@ -7,6 +7,7 @@ namespace DataParser.Entities {
         public string Name { get; set; }
         public string Indicator { get; set; }
         public string Unit { get; set; }
+        public string Date { get; set; }
         public double Value { get; set; }
     }
 }

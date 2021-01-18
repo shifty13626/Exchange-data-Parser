@@ -26,12 +26,12 @@ namespace DataParser
 
             IList<Country> countriesList;
             
-            using (var reader = new StreamReader(Path.Combine("dataset", "top_countries.csv")))
+            using (var reader = new StreamReader(Path.Combine("dataset", "topCountries.csv")))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture)) {
                 csv.Configuration.RegisterClassMap<CountriesMap>();
                 countriesList = csv.GetRecords<Country>().ToList();
             }
-
+            
             IList<GameSales> gameList;
             
             using (var reader = new StreamReader(Path.Combine("dataset", "vgsales.csv")))

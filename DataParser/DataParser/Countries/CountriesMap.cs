@@ -6,9 +6,10 @@ namespace DataParser.Sales {
     {
         public CountriesMap()
         {
-            Map(m => m.Name).ConvertUsing(row => row.GetField<string>("country"));
+            Map(m => m.Name).ConvertUsing(row => row.GetField<string>("Country"));
             Map(m => m.Indicator);
             Map(m => m.Unit);
+            Map(m => m.Date);
             Map(m => m.Value);
         }
     }
