@@ -25,6 +25,14 @@ namespace DataParser
             // create request manager
             requestManager = new RequestManager();
 
+            IList<Country> countriesList;
+            
+            using (var reader = new StreamReader(Path.Combine("dataset", "topCountries.csv")))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture)) {
+                csv.Configuration.RegisterClassMap<CountriesMap>();
+                countriesList = csv.GetRecords<Country>().ToList();
+            }
+            
             IList<GameSales> gameList;
 
             using (var reader = new StreamReader(Path.Combine("dataset", "vgsales.csv")))
