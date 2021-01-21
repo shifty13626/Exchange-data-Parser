@@ -8,6 +8,7 @@ using System.Text;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using DataParser.Entities;
+using Newtonsoft.Json;
 
 namespace DataParser
 {
@@ -20,7 +21,7 @@ namespace DataParser
         /// <param name="config"></param>
         /// <param name="game"></param>
         /// <returns></returns>
-        public void GetGameInfo(Config config, GameSales game)
+        public bool GetGameInfo(Config config, GameSales game)
         {
             try
             {
@@ -36,6 +37,9 @@ namespace DataParser
                 request.AddParameter("text/plain", "fields *;\r\nlimit 100;\r\nwhere name = \"" +game.Name +"\";", ParameterType.RequestBody);
                 IRestResponse response = client.Execute(request);
 
+                if (JArray.Parse(response.Content).Count.Equals(0))
+                    return false;
+
                 // parse result and build dico
                 game.RatingAPI = GetKeyRating(response.Content);
 
@@ -48,11 +52,13 @@ namespace DataParser
                 // get player perspective
                 game.PlayerPerspective = GetPlayerPerspective(config, response.Content);
 
+                return true;
             }
             catch(Exception e)
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.StackTrace);
+                return false;
             }
         }
 
@@ -65,9 +71,13 @@ namespace DataParser
         {
             try
             {
-                JArray rss = JArray.Parse(json);
-                var jsonObjects = rss.OfType<JObject>().ToList();
-                return (double)jsonObjects[0]["aggregated_rating"];
+                JToken objectSearched;
+                JArray JArray = JArray.Parse(json);
+                var rss = JArray.ToObject<List<JObject>>().FirstOrDefault();
+                if (rss.TryGetValue("aggregated_rating", out objectSearched))
+                    return (double)objectSearched;
+                else
+                    return 0.00;
             }
             catch (Exception e)
             {
@@ -91,10 +101,14 @@ namespace DataParser
                 List<string> listGameMode = new List<string>();
 
                 // get all id of game mode
-                JArray rss = JArray.Parse(json);
-                var jsonObjects = rss.OfType<JObject>().ToList();
-                foreach (var value in jsonObjects[0]["game_modes"])
-                    listIdGameMode.Add((int)value);
+                JToken objectSearched;
+                JArray JArray = JArray.Parse(json);
+                var rss = JArray.ToObject<List<JObject>>().FirstOrDefault();
+                if (rss.TryGetValue("game_modes", out objectSearched))
+                    foreach (var value in objectSearched)
+                        listIdGameMode.Add((int)value);
+                else
+                    return null;
 
                 // requesto to get all gameMode
                 foreach(var GameModeKey in listIdGameMode)
@@ -138,10 +152,14 @@ namespace DataParser
                 List<string> listcompany = new List<string>();
 
                 // get all id of involved company
-                JArray rss = JArray.Parse(json);
-                var jsonObjects = rss.OfType<JObject>().ToList();
-                foreach (var value in jsonObjects[0]["involved_companies"])
-                    listIdInvolvedComapny.Add((int)value);
+                JToken objectSearched;
+                JArray JArray = JArray.Parse(json);
+                var rss = JArray.ToObject<List<JObject>>().FirstOrDefault();
+                if (rss.TryGetValue("involved_companies", out objectSearched))
+                    foreach (var value in objectSearched)
+                        listIdInvolvedComapny.Add((int)value);
+                else
+                    return null;
 
                 // get id of all company
                 foreach(var involvedCompany in listIdInvolvedComapny)
@@ -202,10 +220,14 @@ namespace DataParser
                 List<string> listPlayerPerspective = new List<string>();
 
                 // get all id of perspective
-                JArray rss = JArray.Parse(json);
-                var jsonObjects = rss.OfType<JObject>().ToList();
-                foreach (var value in jsonObjects[0]["player_perspectives"])
-                    listIdplayerPerspective.Add((int)value);
+                JToken objectSearched;
+                JArray JArray = JArray.Parse(json);
+                var rss = JArray.ToObject<List<JObject>>().FirstOrDefault();
+                if (rss.TryGetValue("player_perspectives", out objectSearched))
+                    foreach (var value in objectSearched)
+                        listIdplayerPerspective.Add((int)value);
+                else
+                    return null;
 
                 // requesto to get all gameMode
                 foreach (var perspective in listIdplayerPerspective)
