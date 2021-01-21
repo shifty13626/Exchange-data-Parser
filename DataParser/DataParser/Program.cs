@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using CsvHelper;
+using DataParser.Awards;
 using DataParser.Sales;
 using DataParser.Entities;
 
@@ -25,13 +26,20 @@ namespace DataParser
             requestManager = new RequestManager();
 
             IList<GameSales> gameList;
-            
+
             using (var reader = new StreamReader(Path.Combine("dataset", "vgsales.csv")))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture)) {
                 csv.Configuration.RegisterClassMap<GameSalesMap>();
                 gameList = csv.GetRecords<GameSales>().ToList();
             }
 
+            IList<GameAwards> awardList;
+            
+            using (var reader = new StreamReader(Path.Combine("dataset", "the_game_awards.csv")))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture)) {
+                csv.Configuration.RegisterClassMap<GameAwardsMap>();
+                awardList = csv.GetRecords<GameAwards>().ToList();
+            }
 
             // get all games from API
             for(int i= 0; i < 1; i++)
@@ -40,6 +48,8 @@ namespace DataParser
             }
             
             Console.WriteLine("Parsing done");
+
+            
         }
     }
 }
