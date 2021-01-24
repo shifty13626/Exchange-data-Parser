@@ -43,14 +43,14 @@ namespace DataParser
             var cpt = 1;
             foreach(var game in gameList)
             {
-                chronoTotal.Start();
+                chronoRequest.Start();
                 Console.Write("Search data for game : \"" + game.Name + "\" (" +cpt +"/" +gameList.Count +") in IGDB API. ==> ");
                 if (requestManager.GetGameInfo(config, game))
                     Console.Write("Game treat.");
                 else
                     Console.Write("Game NOT treat.");
-                chronoTotal.Stop();
-                Console.WriteLine(" ({0:hh\\:mm\\:ss\\.fffffff})", chronoTotal.Elapsed);
+                chronoRequest.Stop();
+                Console.WriteLine(" ({0:hh\\:mm\\:ss\\.fffffff})", chronoRequest.Elapsed);
 
                 cpt++;
             }
