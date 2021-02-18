@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <None Update="config.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="dataset\echange-data.postman_collection.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -23,6 +23,12 @@
     </None>
     <None Update="dataset\steam-200k.xlsm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="dataset\vgsales_test.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="dataset\vgsales.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
     </None>
     <None Update="dataset\vgsales.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
