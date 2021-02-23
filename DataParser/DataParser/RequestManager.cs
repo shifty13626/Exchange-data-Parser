@@ -15,6 +15,40 @@ namespace DataParser
     public class RequestManager
     {
         /// <summary>
+        /// Method to get the token for other request
+        /// </summary>
+        /// <param name="config"></param>
+        /// <returns></returns>
+        public string RefreshToken(Config config)
+        {
+            try
+            {
+                var client = new RestClient("https://id.twitch.tv/oauth2/token?client_id="
+                    +config.ClientID
+                    +"&client_secret="
+                    +config.ClientSecret
+                    +"&grant_type=client_credentials");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                IRestResponse response = client.Execute(request);
+
+                JToken objectSearched;
+                var JArray = JObject.Parse(response.Content);
+               // var rss = JArray.ToObject<List<JObject>>().FirstOrDefault();
+                if (JArray.TryGetValue("access_token", out objectSearched))
+                    return (string)objectSearched;
+                else
+                    return null;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Can't refresh token");
+                return null;
+            }
+        }
+
+
+        /// <summary>
         /// Function to get information about a game
         /// Source : IGDB
         /// </summary>

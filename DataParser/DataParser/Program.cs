@@ -31,6 +31,13 @@ namespace DataParser
             // create request manager
             requestManager = new RequestManager();
 
+            config.Token = requestManager.RefreshToken(config);
+            if(config.Token.Equals(null))
+            {
+                Console.WriteLine("Can't get token of this account. End execution");
+                return;
+            }
+
             IList<GameSales> gameList;
             
             using (var reader = new StreamReader(Path.Combine("dataset", "vgsales.csv")))

@@ -19,5 +19,9 @@ namespace DataParser.Configuration
         /// ClientID identifier to connect to API
         /// </summary>
         public string ClientID { get; set; }
+        /// <summary>
+        /// Secret key to request token
+        /// </summary>
+        public string ClientSecret { get; set; }
     }
 }

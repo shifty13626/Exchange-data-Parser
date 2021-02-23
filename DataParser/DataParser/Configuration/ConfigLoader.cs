@@ -17,6 +17,7 @@ namespace DataParser.Configuration
         private static string Node_AddresseAPI = "addressAPI";
         private static string Node_TokenAPI = "token";
         private static string Node_ClientIdAPI = "clientID";
+        private static string Node_ClientSecretAPI = "clientSecret";
         #endregion
 
 
@@ -38,8 +39,8 @@ namespace DataParser.Configuration
             return new Config()
             {
                 AddressAPI = root.Element(Node_AddresseAPI).Value,
-                Token = root.Element(Node_TokenAPI).Value,
-                ClientID = root.Element(Node_ClientIdAPI).Value
+                ClientID = root.Element(Node_ClientIdAPI).Value,
+                ClientSecret = root.Element(Node_ClientSecretAPI).Value
             };
         }
     }
