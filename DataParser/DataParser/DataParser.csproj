@@ -24,11 +24,8 @@
     <None Update="dataset\steam-200k.xlsm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="dataset\vgsales_test.csv">
+    <None Update="dataset\vgsales-sale - Copier.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="dataset\vgsales.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
     </None>
     <None Update="dataset\vgsales.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

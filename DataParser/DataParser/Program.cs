@@ -61,6 +61,12 @@ namespace DataParser
                 Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "results"));
             // write as Json
             File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "results", "result.json"), JsonConvert.SerializeObject(gameList));
+            // write as csv
+            using (var writer = new StreamWriter(Path.Combine(Environment.CurrentDirectory, "results", "result.csv")))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(gameList);
+            }
 
             // Write statistics
             Console.WriteLine("Game found : " + gameList.Count);
