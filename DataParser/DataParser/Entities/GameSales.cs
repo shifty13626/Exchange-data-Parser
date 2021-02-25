@@ -36,6 +36,23 @@ namespace DataParser.Entities {
         public List<string> PlayerPerspective { get; set; }
 
         /// <summary>
+        /// Category for game
+        /// </summary>
+        public string Category { get; set; }
+        /// <summary>
+        /// winner of award
+        /// </summary>
+        public bool Winner { get; set; }
+        /// <summary>
+        /// People have voted
+        /// </summary>
+        public string Voted { get; set; }
+
+
+
+
+
+        /// <summary>
         /// constructor
         /// </summary>
         public GameSales()

@@ -46,6 +46,18 @@ namespace DataParser
                 gameList = csv.GetRecords<GameSales>().ToList();
             }
 
+
+            IList<GameAwards> awardList;
+
+            using (var reader = new StreamReader(Path.Combine("dataset", "the_game_awards.csv")))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                csv.Configuration.RegisterClassMap<GameAwardsMap>();
+                awardList = csv.GetRecords<GameAwards>().ToList();
+            }
+
+
+
             // get all games from API
             var cpt = 1;
             foreach(var game in gameList)
@@ -61,6 +73,32 @@ namespace DataParser
 
                 cpt++;
             }
+                
+            /*
+            gameList = 
+            from game in gameList
+            join awardedGame in awardList
+            on game.Name equals awardedGame.Nominee into toto
+            from p in toto.DefaultIfEmpty()
+            select game.Winner, game.
+            */
+
+            // Join games with awards
+            foreach (var award in awardList)
+            {
+
+                
+
+                
+                var gameSelected = gameList.FirstOrDefault(x => x.Name.Equals(award.Nominee));
+                if(gameSelected != null)
+                {
+                    gameSelected.Winner = award.Winner;
+                    gameSelected.Voted = award.Voted;
+                }
+                
+            }
+
 
             // Write all game in result files
             // create folder result
