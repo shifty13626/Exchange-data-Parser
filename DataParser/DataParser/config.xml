@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <config>
   <addressAPI>https://api.igdb.com/</addressAPI>
-  <clientID>yelxclbcis2hmgdqo5owa5h9flk5bj</clientID>
-  <clientSecret>ni26gd92kt65b1fmz9i3zn3xynukh5</clientSecret>
+  <clientID></clientID>
+  <clientSecret></clientSecret>
 </config>
