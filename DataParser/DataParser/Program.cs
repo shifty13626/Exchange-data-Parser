@@ -40,7 +40,7 @@ namespace DataParser
 
             IList<GameSales> gameList;
             
-            using (var reader = new StreamReader(Path.Combine("dataset", "vgsales.csv")))
+            using (var reader = new StreamReader(Path.Combine("dataset", "vgsales-500.csv")))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture)) {
                 csv.Configuration.RegisterClassMap<GameSalesMap>();
                 gameList = csv.GetRecords<GameSales>().ToList();
